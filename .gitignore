@@ -1,1 +1,8 @@
 *.dll
+examples/HelloAE/proj.cmake/build/
+examples/HelloViewerAE/proj.cmake/build/
+examples/AE/
+export/2/
+export/temp/
+*.pyc
+examples/HelloViewerAE/data/viewer.log

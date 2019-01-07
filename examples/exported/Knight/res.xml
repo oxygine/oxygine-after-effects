@@ -1,0 +1,34 @@
+<resources>
+	<set path="images"/>
+	<atlas>
+		<image file="eyelid_btm.png"/>
+		<image file="eyelid_up.png"/>
+		<image file="Sprite_Player_body.png"/>
+		<image file="Sprite_Player_head.png"/>
+		<image file="Sprite_Player_left_apple_eye.png"/>
+		<image file="Sprite_Player_left_eyebrow.png"/>
+		<image file="Sprite_Player_left_eyelash.png"/>
+		<image file="Sprite_Player_left_hand.png"/>
+		<image file="Sprite_Player_left_hand_bg.png"/>
+		<image file="Sprite_Player_left_leg.png"/>
+		<image file="Sprite_Player_left_leg_bg.png"/>
+		<image file="Sprite_Player_right_apple_eye.png"/>
+		<image file="Sprite_Player_right_eyebrow.png"/>
+		<image file="Sprite_Player_right_eyelash.png"/>
+		<image file="Sprite_Player_right_hand.png"/>
+		<image file="Sprite_Player_right_hand_bg.png"/>
+		<image file="Sprite_Player_right_leg.png"/>
+		<image file="Sprite_Player_right_leg_bg.png"/>
+		<image file="Sprite_Player_shield.png"/>
+		<image file="Sprite_Player_strand_1.png"/>
+		<image file="Sprite_Player_strand_2.png"/>
+		<image file="Sprite_Player_strand_3.png"/>
+		<image file="Sprite_Player_strand_4.png"/>
+		<image file="Sprite_Player_sword.png"/>
+		<image file="Sprite_Player_textile.png"/>
+		<image file="Sprite_Player_textile_back.png"/>
+		<image file="Sprite_Player_textile_bg.png"/>
+		<image file="Sprite_Player_white_eyes.png"/>
+		<image file="Sprite_Player_wrist_right_hand.png"/>
+	</atlas>
+</resources>
