@@ -174,6 +174,9 @@ extern "C"
 
     int main(int argc, char* argv[])
     {
+#ifdef __APPLE__
+        aeProject = "Knight";
+#endif
         if (argc > 1)
         {
             aeProject = argv[1];

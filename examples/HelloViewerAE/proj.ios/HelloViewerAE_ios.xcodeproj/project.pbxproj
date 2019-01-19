@@ -36,6 +36,7 @@
 		4F3FDC3C21F38480006227F7 /* AEMovieResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDC3621F38480006227F7 /* AEMovieResource.cpp */; };
 		4F3FDC3D21F38480006227F7 /* AERenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDC3821F38480006227F7 /* AERenderer.cpp */; };
 		4F3FDC3E21F38480006227F7 /* AEMovie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FDC3921F38480006227F7 /* AEMovie.cpp */; };
+		4F3FDC4021F38D11006227F7 /* Knight in Resources */ = {isa = PBXBuildFile; fileRef = 4F3FDC3F21F38D11006227F7 /* Knight */; };
 		4F7EF5AF200623DE004089D6 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7EF5AE200623DE004089D6 /* Metal.framework */; };
 		4F8012E521454FEA00FDBA22 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8012E021454FEA00FDBA22 /* CoreBluetooth.framework */; };
 		9223FE7F1C2D913D000B1FDA /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9223FE7E1C2D913D000B1FDA /* GameController.framework */; };
@@ -126,6 +127,7 @@
 		4F3FDC3921F38480006227F7 /* AEMovie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AEMovie.cpp; path = ../../../src/ae/AEMovie.cpp; sourceTree = "<group>"; };
 		4F3FDC3A21F38480006227F7 /* AEConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEConf.h; path = ../../../src/ae/AEConf.h; sourceTree = "<group>"; };
 		4F3FDC3B21F38480006227F7 /* AEMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEMovie.h; path = ../../../src/ae/AEMovie.h; sourceTree = "<group>"; };
+		4F3FDC3F21F38D11006227F7 /* Knight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Knight; path = ../../exported/Knight; sourceTree = "<group>"; };
 		4F7EF5AE200623DE004089D6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		4F8012E021454FEA00FDBA22 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9223FE7E1C2D913D000B1FDA /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
@@ -217,6 +219,7 @@
 		04998CF617F8A933003441C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4F3FDC3F21F38D11006227F7 /* Knight */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E9AD3F1876FE84006A7317 /* Images.xcassets in Resources */,
+				4F3FDC4021F38D11006227F7 /* Knight in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +462,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"AE_TIME_MILLISECOND=1",
+					"AE_TIME_DEFINE=1",
+					"AE_MOVIE_STREAM_NO_CACHE=1",
+					"AE_MOVIE_SAFE=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -497,6 +505,12 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"AE_TIME_MILLISECOND=1",
+					"AE_TIME_DEFINE=1",
+					"AE_MOVIE_STREAM_NO_CACHE=1",
+					"AE_MOVIE_SAFE=1",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
