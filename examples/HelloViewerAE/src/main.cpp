@@ -147,10 +147,6 @@ void run()
     ObjectBase::dumpCreatedObjects();
 
     ObjectBase::__stopTracingLeaks();
-    //end
-
-
-	std::quick_exit(1);
 }
 
 #ifdef __S3E__

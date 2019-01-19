@@ -6,3 +6,6 @@ export/2/
 export/temp/
 *.pyc
 examples/HelloViewerAE/data/viewer.log
+examples/HelloViewerAE/proj.android/.gradle/
+examples/HelloViewerAE/proj.android/build/
+examples/HelloViewerAE/proj.android/.externalNativeBuild/
