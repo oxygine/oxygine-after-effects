@@ -20,8 +20,8 @@
 #include "ox/DebugActor.hpp"
 
 #ifndef AEVIEWER
-#include "ResSound.h"
-#include "SoundInstance.h"
+//#include "ResSound.h"
+//#include "SoundInstance.h"
 #endif
 
 #ifdef HAVE_MP

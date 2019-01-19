@@ -21,7 +21,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := main
 
-LOCAL_CFLAGS +=-DAEVIEWER=1
 
 #SDK_ROOT points to folder with SDL and oxygine-framework
 LOCAL_SRC_FILES := ../../../../../..//SDL/src/main/android/SDL_android_main.c
