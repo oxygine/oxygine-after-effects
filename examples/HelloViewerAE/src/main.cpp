@@ -174,9 +174,6 @@ extern "C"
 
     int main(int argc, char* argv[])
     {
-#ifdef __APPLE__
-        aeProject = "Knight";
-#endif
         if (argc > 1)
         {
             aeProject = argv[1];
@@ -188,6 +185,13 @@ extern "C"
                     sscanf(argv[3], "%f;%f", &aeWorkArea.x, &aeWorkArea.y);
             }            
         }
+
+
+        if (aeProject.empty())
+        {
+            aeProject = "exported/Knight";
+        }
+
 
         run();
 
