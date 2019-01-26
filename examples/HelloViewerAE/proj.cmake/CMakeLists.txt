@@ -35,7 +35,7 @@ target_link_libraries(HelloViewerAE ${OXYGINE_CORE_LIBS})
 include_directories(../../../src/)
 
 
-add_definitions(-DAE_MOVIE_STREAM_NO_CACHE=1 -DAE_TIME_DEFINE=1 -DAE_TIME_MILLISECOND=1 -DAE_MOVIE_SAFE=1)
+add_definitions(-DAE_MOVIE_STREAM_NO_CACHE=1 -DAE_TIME_DEFINE=1 -DAE_TIME_MILLISECOND=1 -DAE_MOVIE_SAFE=1 -DAEVIEWER=1)
 include_directories(../../../src/)
 include_directories(../../../ae-movie/include)
 

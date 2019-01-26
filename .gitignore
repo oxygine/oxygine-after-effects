@@ -11,3 +11,6 @@ examples/HelloViewerAE/proj.android/build/
 examples/HelloViewerAE/proj.android/.externalNativeBuild/
 examples/HelloViewerAE/proj.win32/.vs/
 examples/HelloViewerAE/proj.win32/Debug_v141/
+examples/HelloViewerAE/proj.win32/Release_v141/
+examples/HelloViewerAE/proj.cmake/build_emsc/
+examples/HelloViewerAE/proj.cmake/data.js
