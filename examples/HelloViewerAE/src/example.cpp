@@ -424,13 +424,17 @@ void example_preinit()
 }
 
 
+
+
 oxygine::file::ZipFileSystem zfs;
 
 void example_init()
 {
     Test::init();
 	key::init();
-    AEMovieResource::initLibrary();
+
+    const char* AE_HASH = "ecff8ac15e4ff55b35a11350099f0f3137ecdd85";
+    AEMovieResource::initLibrary(AE_HASH);
 
 
     bool isZip = path::extractFileExt(aeProject) == "zip";

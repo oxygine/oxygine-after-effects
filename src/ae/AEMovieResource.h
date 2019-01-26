@@ -26,7 +26,7 @@ class AEMovieResource : public Object
 {
 public:
     static const aeMovieInstance* instance;
-    static void initLibrary();
+    static void initLibrary(const char *AE_HASH);
     static void freeLibrary();
     static void updateLibrary();
 

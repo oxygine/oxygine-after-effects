@@ -8,8 +8,6 @@
 #include "ox/ResFont.hpp"
 #include "ox/Font.hpp"
 
-#define AE_HASH "ecff8ac15e4ff55b35a11350099f0f3137ecdd85"
-
 //#define AE_DEBUG_SHOW_SLOTS
 
 
@@ -90,7 +88,7 @@ void  ae_movie_logerror(void* _data, aeMovieErrorCode _code, const ae_char_t* _m
 
 ResAnim _missingResAnim;
 
-void AEMovieResource::initLibrary()
+void AEMovieResource::initLibrary(const char *AE_HASH)
 {
     logs::messageln("AEMovieResource::initLibrary");
     _aeTotalMem = 0;
