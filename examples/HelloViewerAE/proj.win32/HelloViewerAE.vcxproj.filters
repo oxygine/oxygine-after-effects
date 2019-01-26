@@ -13,5 +13,108 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="dependencies">
+      <UniqueIdentifier>{68116c63-40e7-48cf-9e54-1ef4692fef7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dependencies\oxygine-ae">
+      <UniqueIdentifier>{e1115398-40c0-46d4-8f36-373309044864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dependencies\lib">
+      <UniqueIdentifier>{bd2aa26c-548f-4c17-9ebd-96a7cd837657}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../src/example.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="../src/main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ae\AEMovie.cpp">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ae\AEMovieResource.cpp">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ae\AERenderer.cpp">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AEMovieWork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_bezier.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_composition.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_data.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_instance.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_math.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_providers.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_skeleton.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_stream.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ae-movie\src\movie_transformation.c">
+      <Filter>dependencies\lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="../src/example.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ae\AEConf.h">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ae\AEMovie.h">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ae\AEMovieResource.h">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ae\AERenderer.h">
+      <Filter>dependencies\oxygine-ae</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AEMovieWork.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_bezier.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_debug.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_math.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_memory.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_stream.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_struct.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_transformation.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

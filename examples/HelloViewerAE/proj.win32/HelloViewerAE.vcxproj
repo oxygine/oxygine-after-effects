@@ -17,8 +17,6 @@
     <ProjectName>HelloViewerAE</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -36,11 +34,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <WholeProgramOptimization Condition="'$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '14.0'">true</WholeProgramOptimization>
-    
-
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
@@ -62,15 +57,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-
   <PropertyGroup>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)_$(PlatformToolset)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)_$(PlatformToolset)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)_$(PlatformToolset)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)_$(PlatformToolset)\</IntDir>
   </PropertyGroup>
-
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -84,12 +76,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../../../oxygine-framework//oxygine/src;../../../..//SDL/include;../../../../oxygine-framework//oxygine/third_party/win32/pthreads/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../../oxygine-framework//oxygine/src;../../../..//SDL/include;../../../../oxygine-framework//oxygine/third_party/win32/pthreads/include;../../../src;../../../ae-movie/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies></AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <AdditionalLibraryDirectories>../../../../oxygine-framework//oxygine/third_party/win32/libraries;../../../../oxygine-framework//libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -103,7 +96,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../../../oxygine-framework//oxygine/src;../../../..//SDL/include;../../../../oxygine-framework//oxygine/third_party/win32/pthreads/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../../oxygine-framework//oxygine/src;../../../..//SDL/include;../../../../oxygine-framework//oxygine/third_party/win32/pthreads/include;../../../src;../../../ae-movie/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -111,20 +104,49 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>../../../../oxygine-framework//oxygine/third_party/win32/libraries;../../../../oxygine-framework//libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies></AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>    
+  <ItemGroup>
     <ProjectReference Include="../../../../oxygine-framework/\oxygine\SDL\win32\oxygine.vcxproj">
       <Project>{52411305-cfe1-4fa8-9885-5729bfc816cf}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="../src/example.cpp" /><ClCompile Include="../src/main.cpp" />
+    <ClCompile Include="../src/example.cpp" />
+    <ClCompile Include="../src/main.cpp" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_bezier.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_composition.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_data.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_instance.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_math.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_providers.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_skeleton.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_stream.c" />
+    <ClCompile Include="..\..\..\ae-movie\src\movie_transformation.c" />
+    <ClCompile Include="..\..\..\src\ae\AEMovie.cpp" />
+    <ClCompile Include="..\..\..\src\ae\AEMovieResource.cpp" />
+    <ClCompile Include="..\..\..\src\ae\AERenderer.cpp" />
+    <ClCompile Include="..\src\AEMovieWork.cpp" />
+    <ClCompile Include="..\src\test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../src/example.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_bezier.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_debug.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_math.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_memory.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_stream.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_struct.h" />
+    <ClInclude Include="..\..\..\ae-movie\src\movie_transformation.h" />
+    <ClInclude Include="..\..\..\src\ae\AEConf.h" />
+    <ClInclude Include="..\..\..\src\ae\AEMovie.h" />
+    <ClInclude Include="..\..\..\src\ae\AEMovieResource.h" />
+    <ClInclude Include="..\..\..\src\ae\AERenderer.h" />
+    <ClInclude Include="..\src\AEMovieWork.h" />
+    <ClInclude Include="..\src\test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

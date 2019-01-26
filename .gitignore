@@ -9,3 +9,5 @@ examples/HelloViewerAE/data/viewer.log
 examples/HelloViewerAE/proj.android/.gradle/
 examples/HelloViewerAE/proj.android/build/
 examples/HelloViewerAE/proj.android/.externalNativeBuild/
+examples/HelloViewerAE/proj.win32/.vs/
+examples/HelloViewerAE/proj.win32/Debug_v141/
