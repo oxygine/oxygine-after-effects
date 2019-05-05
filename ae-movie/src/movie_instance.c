@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -33,7 +33,7 @@
 #include "movie_memory.h"
 
 //////////////////////////////////////////////////////////////////////////
-AE_CALLBACK ae_int32_t __movie_strncmp( ae_voidptr_t _data, const ae_char_t * _src, const ae_char_t * _dst, ae_size_t _count )
+AE_CALLBACK ae_int32_t __movie_strncmp( ae_userdata_t _data, const ae_char_t * _src, const ae_char_t * _dst, ae_size_t _count )
 {
     AE_UNUSED( _data );
 
@@ -59,7 +59,7 @@ AE_CALLBACK ae_int32_t __movie_strncmp( ae_voidptr_t _data, const ae_char_t * _s
     return 0;
 }
 //////////////////////////////////////////////////////////////////////////
-AE_CALLBACK ae_void_t __movie_logerror( ae_voidptr_t _data, aeMovieErrorCode _code, const ae_char_t * _message, ... )
+AE_CALLBACK ae_void_t __movie_logerror( ae_userdata_t _data, aeMovieErrorCode _code, const ae_char_t * _message, ... )
 {
     AE_UNUSED( _data );
     AE_UNUSED( _code );
@@ -124,7 +124,7 @@ AE_INTERNAL ae_void_t __instance_setup_bezier_warp( aeMovieInstance * _instance 
 //////////////////////////////////////////////////////////////////////////
 const aeMovieInstance * ae_create_movie_instance( const ae_char_t * _hashkey, ae_movie_alloc_t _alloc, ae_movie_alloc_n_t _alloc_n, ae_movie_free_t _free, ae_movie_free_n_t _free_n, ae_movie_strncmp_t _strncmp, ae_movie_logger_t _logger, ae_userdata_t _userdata )
 {
-    if( _hashkey == AE_NULLPTR || _alloc == AE_NULLPTR || _alloc_n == AE_NULLPTR || _free == AE_NULLPTR || _free_n == AE_NULLPTR )
+    if( _alloc == AE_NULLPTR || _alloc_n == AE_NULLPTR || _free == AE_NULLPTR || _free_n == AE_NULLPTR )
     {
         return AE_NULLPTR;
     }
@@ -135,38 +135,34 @@ const aeMovieInstance * ae_create_movie_instance( const ae_char_t * _hashkey, ae
     aeMovieInstance * instance = (*_alloc)(_userdata, sizeof( aeMovieInstance ));
 #endif
 
+    instance->use_hash = AE_FALSE;
     instance->hashmask[0] = 0;
     instance->hashmask[1] = 0;
     instance->hashmask[2] = 0;
     instance->hashmask[3] = 0;
     instance->hashmask[4] = 0;
 
-    ae_uint32_t i = 0;
-    for( ; i != 41; ++i )
+    if( _hashkey != AE_HASHKEY_EMPTY && _hashkey[0] != '\0' )
     {
-        if( _hashkey[i] == '\0' && i != 40 )
+        instance->use_hash = AE_TRUE;
+
+        ae_uint32_t i = 0;
+        for( ; i != 40; ++i )
         {
-            return AE_NULLPTR;
+            if( _hashkey[i] == '\0' )
+            {
+                return AE_NULLPTR;
+            }
+
+            ae_uint32_t j = i / 8;
+            ae_uint32_t k = i % 8;
+
+            ae_char_t hash_char = _hashkey[i];
+
+            ae_uint32_t v = (hash_char > '9') ? hash_char - 'a' + 10 : (hash_char - '0');
+
+            instance->hashmask[j] += v << (k << 2);
         }
-
-        if( _hashkey[i] != '\0' && i == 40 )
-        {
-            return AE_NULLPTR;
-        }
-
-        if( _hashkey[i] == '\0' && i == 40 )
-        {
-            break;
-        }
-
-        ae_uint32_t j = i / 8;
-        ae_uint32_t k = i % 8;
-
-        ae_char_t hash_char = _hashkey[i];
-
-        ae_uint32_t v = (hash_char > '9') ? hash_char - 'a' + 10 : (hash_char - '0');
-
-        instance->hashmask[j] += v << (k * 4);
     }
 
     instance->memory_alloc = _alloc;

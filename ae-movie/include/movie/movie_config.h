@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -37,15 +37,19 @@
 #endif
 
 #ifndef AE_TIME_DEFINE
-#   define AE_TIME_SECOND
+#   define AE_TIME_USE_SECOND
 #endif
 
-#ifdef AE_TIME_SECOND
+#ifdef AE_TIME_USE_SECOND
 #   define AE_TIME_OUTSCALE( T ) (T)
 #   define AE_TIME_INSCALE( T ) (T)
-#elif AE_TIME_MILLISECOND
-#   define AE_TIME_OUTSCALE( T ) (T * 1000.f)
-#   define AE_TIME_INSCALE( T ) (T * 0.001f)
+#   define AE_TIME_SECOND(T) (T)
+#   define AE_TIME_MILLISECOND(T) ((T) * 1000.f)
+#elif AE_TIME_USE_MILLISECOND
+#   define AE_TIME_OUTSCALE( T ) ((T) * 1000.f)
+#   define AE_TIME_INSCALE( T ) ((T) * 0.001f)
+#   define AE_TIME_SECOND(T) ((T) * 0.001f)
+#   define AE_TIME_MILLISECOND(T) (T)
 #endif
 
 #define AE_CALLBACK static

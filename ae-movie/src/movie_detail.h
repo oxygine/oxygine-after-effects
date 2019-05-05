@@ -27,11 +27,30 @@
 * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef MOVIE_HPP_
-#define MOVIE_HPP_
+#ifndef MOVIE_DETAIL_H_
+#define MOVIE_DETAIL_H_
 
-extern "C" {
-#include "movie.h"
+#include "movie_struct.h"
+
+//////////////////////////////////////////////////////////////////////////
+AE_INTERNAL ae_float_t __correct_timeline_frame_time( ae_float_t _time, const aeMovieCompositionData * _compositionData, ae_frame_t * _frame )
+{
+    if( _time < 0.f )
+    {
+        _frame = 0;
+
+        return 0.f;
+    }
+
+    ae_float_t frame_count_f = _time * _compositionData->frameDurationInv;
+
+    ae_frame_t frame_count = (ae_frame_t)(frame_count_f + 0.5f);
+
+    ae_float_t correct_frame_time = (ae_float_t)frame_count * _compositionData->frameDuration;
+
+    *_frame = frame_count;
+
+    return correct_frame_time;
 }
 
 #endif

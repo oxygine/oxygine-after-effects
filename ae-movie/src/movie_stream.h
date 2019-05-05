@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -46,7 +46,7 @@
 #define AE_READF3(stream, value) ae_magic_read_value(stream, &(value), sizeof(value))
 #define AE_READF4(stream, value) ae_magic_read_value(stream, &(value), sizeof(value))
 #define AE_READV(stream, value, size) ae_magic_read_value(stream, value, size)
-#define AE_READN(stream, ptr, n) ae_magic_read_value(stream, ptr, sizeof(*ptr) * n)
+#define AE_READN(stream, ptr, n) ae_magic_read_value(stream, ptr, sizeof(*ptr) * (n))
 //////////////////////////////////////////////////////////////////////////
 #define AE_READB(stream) ae_magic_read_bool(stream)
 #define AE_READZ(stream) ae_magic_read_size(stream)

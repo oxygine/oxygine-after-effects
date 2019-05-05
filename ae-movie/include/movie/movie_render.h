@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -62,14 +62,9 @@ typedef struct aeMovieRenderMesh
     ae_blend_mode_t blend_mode;
 
     /**
-    @brief Type of the resource associated with the mesh.
+    @brief resource associated with the mesh.
     */
-    aeMovieResourceTypeEnum resource_type;
-
-    /**
-    @brief Pointer to the resource data.
-    */
-    ae_userdata_t resource_userdata;
+    const aeMovieResource * resource;
 
     /**
     @brief Number of vertices.

@@ -325,7 +325,7 @@ void updateMask(Mask* mask, const aeMovieRenderMesh* mesh, const Transform *t = 
 {
     mask->_mask = *mesh;
 
-    const ResAnim* resAnim = (ResAnim*)mesh->resource_userdata;
+    const ResAnim* resAnim = (ResAnim*)ae_get_movie_resource_userdata(mesh->resource);
     if (!resAnim)
         return;
     mask->rs = resAnim;
@@ -646,7 +646,7 @@ void AEMovie::init2(const AEMovieResource& res, const aeMovieCompositionData* co
     _compositionData = compositionData;
 
     aeMovieCompositionProviders provider;
-    ae_clear_movie_composition_providers(&provider);
+    ae_initialize_movie_composition_providers(&provider);
 
     provider.camera_provider = ae_movie_composition_node_camera;
   
@@ -1405,7 +1405,7 @@ void AEMovie::doRender(const RenderState& rs)
             case AE_MOVIE_LAYER_TYPE_IMAGE:
             case AE_MOVIE_LAYER_TYPE_SEQUENCE:
             {
-                ResAnim* rs = (ResAnim*)mesh.resource_userdata;
+                ResAnim* rs = (ResAnim*)ae_get_movie_resource_userdata(mesh.resource);
 #ifdef ONLINE
                 preloader::preload(rs);
 #endif

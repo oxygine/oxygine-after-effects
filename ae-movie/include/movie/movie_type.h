@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -46,6 +46,7 @@ typedef size_t ae_size_t;
 typedef int32_t ae_enum_t;
 typedef float ae_float_t;
 typedef float ae_time_t;
+typedef ae_uint32_t ae_frame_t;
 typedef ae_void_t * ae_voidptr_t;
 typedef ae_voidptr_t * ae_voidptrptr_t;
 typedef const ae_void_t * ae_constvoidptr_t;
@@ -70,11 +71,12 @@ typedef void( *ae_function_t )(void);
 static const ae_bool_t AE_TRUE = 1;
 static const ae_bool_t AE_FALSE = 0;
 static const ae_voidptr_t AE_NULLPTR = 0;
+static const ae_string_t AE_HASHKEY_EMPTY = 0;
 static const ae_userdata_t AE_USERDATA_NULL = 0;
 static const ae_function_t AE_FUNCTION_NULL = 0;
 
-#define AE_BITWISE(X) (1 << X)
-#define AE_OPTION(A, B, C, D) ((A << 24) | (B << 16) | (C << 8) | D)
+#define AE_BITWISE(X) (1 << (X))
+#define AE_OPTION(A, B, C, D) (((A) << 24) | ((B) << 16) | ((C) << 8) | (D))
 
 typedef ae_float_t ae_color_channel_t;
 
@@ -145,7 +147,7 @@ typedef enum
 #define AE_MOVIE_RESOURCE_BASE()\
 	aeMovieResourceTypeEnum type;\
     ae_string_t name;\
-	ae_voidptr_t userdata
+	ae_userdata_t userdata
 
 typedef struct aeMovieResource
 {
@@ -213,7 +215,7 @@ typedef enum
     AE_RESULT_INTERNAL_ERROR = -8,
 } ae_result_t;
 
-typedef ae_size_t( *ae_movie_stream_memory_read_t )(ae_voidptr_t _data, ae_voidptr_t _buff, ae_size_t _carriage, ae_size_t _size);
-typedef ae_void_t( *ae_movie_stream_memory_copy_t )(ae_voidptr_t _data, ae_constvoidptr_t _src, ae_voidptr_t _dst, ae_size_t _size);
+typedef ae_size_t( *ae_movie_stream_memory_read_t )(ae_userdata_t _data, ae_voidptr_t _buff, ae_size_t _carriage, ae_size_t _size);
+typedef ae_void_t( *ae_movie_stream_memory_copy_t )(ae_userdata_t _data, ae_constvoidptr_t _src, ae_voidptr_t _dst, ae_size_t _size);
 
 #endif

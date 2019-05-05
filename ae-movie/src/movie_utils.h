@@ -27,11 +27,11 @@
 * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef MOVIE_HPP_
-#define MOVIE_HPP_
+#ifndef MOVIE_UTILS_H_
+#define MOVIE_UTILS_H_
 
-extern "C" {
-#include "movie.h"
-}
+#include "movie/movie_type.h"
+
+#define AE_STRNCMP(instance, src, dst, count) (instance->strncmp(instance->instance_userdata, src, dst, count))
 
 #endif

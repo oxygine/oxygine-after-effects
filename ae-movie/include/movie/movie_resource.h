@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -85,6 +85,8 @@ typedef enum
     AE_MOVIE_RESOURCE_IMAGE_PREMULTIPLIED = AE_BITWISE( 0 ),
     AE_MOVIE_RESOURCE_IMAGE_TRIM = AE_BITWISE( 1 ),
     AE_MOVIE_RESOURCE_IMAGE_TRACKMATTE = AE_BITWISE( 2 ),
+    AE_MOVIE_RESOURCE_IMAGE_TRANSPARENT = AE_BITWISE( 3 ),
+    AE_MOVIE_RESOURCE_IMAGE_BEZMESH = AE_BITWISE( 4 ),
 } ae_movie_resource_image_options;
 
 typedef struct aeMovieResourceImage

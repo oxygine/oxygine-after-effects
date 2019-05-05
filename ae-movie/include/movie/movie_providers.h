@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -56,7 +56,8 @@ typedef enum
     AE_MOVIE_STATE_UPDATE_RESUME,
     AE_MOVIE_STATE_UPDATE_STOP,
     AE_MOVIE_STATE_UPDATE_END,
-    AE_MOVIE_STATE_UPDATE_SKIP
+    AE_MOVIE_STATE_UPDATE_SEEK,
+    AE_MOVIE_STATE_UPDATE_SKIP,
 } aeMovieStateUpdateEnum;
 
 typedef struct aeMovieCameraProviderCallbackData
@@ -314,6 +315,7 @@ typedef enum
     AE_MOVIE_COMPOSITION_INTERRUPT,
     AE_MOVIE_COMPOSITION_END,
     AE_MOVIE_COMPOSITION_LOOP_END,
+    AE_MOVIE_COMPOSITION_LOOP_CONTINUOUS,
 } aeMovieCompositionStateEnum;
 
 typedef struct aeMovieCompositionStateCallbackData
@@ -447,7 +449,7 @@ typedef struct aeMovieCompositionProviders
     ae_movie_composition_callback_subcomposition_state_t subcomposition_state;
 } aeMovieCompositionProviders;
 
-ae_void_t ae_clear_movie_composition_providers( aeMovieCompositionProviders * _providers );
+ae_void_t ae_initialize_movie_composition_providers( aeMovieCompositionProviders * _providers );
 
 // providers
 /// @}

@@ -116,5 +116,11 @@
     <ClInclude Include="..\..\..\ae-movie\src\movie_transformation.h">
       <Filter>dependencies\lib</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_detail.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ae-movie\src\movie_utils.h">
+      <Filter>dependencies\lib</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

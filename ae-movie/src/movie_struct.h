@@ -1,7 +1,7 @@
 /******************************************************************************
 * libMOVIE Software License v1.0
 *
-* Copyright (c) 2016-2018, Yuriy Levchenko <irov13@mail.ru>
+* Copyright (c) 2016-2019, Yuriy Levchenko <irov13@mail.ru>
 * All rights reserved.
 *
 * You are granted a perpetual, non-exclusive, non-sublicensable, and
@@ -86,6 +86,7 @@ AE_INTERNAL ae_void_t __clear_layer_extensions( aeMovieLayerExtensions * _extens
 //////////////////////////////////////////////////////////////////////////
 struct aeMovieInstance
 {
+    ae_bool_t use_hash;
     ae_uint32_t hashmask[5];
 
     ae_movie_alloc_t memory_alloc;
@@ -129,11 +130,17 @@ struct aeMovieCompositionAnimation
 
     ae_time_t time;
 
-    ae_time_t loop_segment_begin;
-    ae_time_t loop_segment_end;
+    ae_time_t loop_segment_time_begin;
+    ae_time_t loop_segment_time_end;
 
-    ae_time_t work_area_begin;
-    ae_time_t work_area_end;
+    ae_uint32_t loop_segment_frame_begin;
+    ae_uint32_t loop_segment_frame_end;
+
+    ae_time_t work_area_time_begin;
+    ae_time_t work_area_time_end;
+
+    ae_uint32_t work_area_frame_begin;
+    ae_uint32_t work_area_frame_end;
 };
 //////////////////////////////////////////////////////////////////////////
 struct aeMovieSubComposition
@@ -162,9 +169,13 @@ struct aeMovieNode
     ae_float_t in_time;
     ae_float_t out_time;
 
+    ae_frame_t start_frame;
+    ae_frame_t in_frame;
+    ae_frame_t out_frame;
+
     ae_float_t stretchInv;
     ae_float_t current_time;
-    ae_uint32_t current_frame;
+    ae_frame_t current_frame;
     ae_float_t current_frame_t;
 
     ae_bool_t active;
@@ -176,7 +187,6 @@ struct aeMovieNode
 
     ae_uint32_t animate;
 
-    ae_uint32_t update_revision;
     ae_matrix34_t matrix;
 
     ae_color_t composition_color;
@@ -192,7 +202,7 @@ struct aeMovieNode
     ae_blend_mode_t blend_mode;
 
     ae_userdata_t element_userdata;
-    ae_userdata_t camera_userdata;    
+    ae_userdata_t camera_userdata;
     ae_userdata_t shader_userdata;
     ae_userdata_t track_matte_userdata;
 };
@@ -206,12 +216,11 @@ struct aeMovieComposition
 
     ae_userdata_t camera_userdata;
 
-    ae_uint32_t * update_revision;
-
     ae_bool_t interpolate;
 
     ae_uint32_t node_count;
     aeMovieNode * nodes;
+	aeMovieNode ** update_nodes;
 
     aeMovieNode * scene_effect_node;
     ae_userdata_t scene_effect_userdata;
@@ -274,12 +283,11 @@ struct aeMovieCompositionData
     ae_float_t width;
     ae_float_t height;
 
-    ae_time_t duration;
+    ae_time_t duration_time;
+    ae_frame_t duration_frame;
 
     ae_time_t frameDuration;
     ae_time_t frameDurationInv;
-
-    ae_uint32_t frameCount;
 
     ae_uint32_t flags;
 

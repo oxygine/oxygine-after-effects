@@ -433,7 +433,7 @@ void example_init()
     Test::init();
 	key::init();
 
-    const char* AE_HASH = "ecff8ac15e4ff55b35a11350099f0f3137ecdd85";
+    const char* AE_HASH = "";
     AEMovieResource::initLibrary(AE_HASH);
 
 
